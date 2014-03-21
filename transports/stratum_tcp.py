@@ -278,7 +278,13 @@ class TcpServer(threading.Thread):
                             poller.modify(s, READ_ONLY)
                             continue
 
-                    sent = s.send(next_msg)
+                    try:
+                        sent = s.send(next_msg)
+                    except socket.error as x:
+                        # print_log("recv err", x)
+                        stop_session(fd)
+                        continue
+                        
                     session.retry_msg = next_msg[sent:]
 
 
