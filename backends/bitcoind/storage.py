@@ -42,7 +42,7 @@ class Storage(object):
             #traceback.print_exc(file=sys.stdout)
             print_log('initializing database')
             self.height = 0
-            self.last_hash = '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f'
+            self.last_hash = '1bcadd56800b9a68293fc87d1e21eb8d3c538fcf378a411978e3387c6c5b4b2b'
             db_version = self.db_version
             # write root
             self.put_node('', {})
